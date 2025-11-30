@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffc1fed2;
+           
+        }
+
+        .container {
+            width: 80%;
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #444;
+        }
+
+        h2 {
+            margin-top: 10px;
+            font-weight: normal;
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+        }
+
+        button[type="reset"] {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        h3, h4 {
+            margin-bottom: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .radio-group, .porte-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pet Match</h1>
+        <h2>Cadastro</h2>
+
+        <form method="get" action="TRABALHO DOS CÃO.html">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="tel" name="telefone" placeholder="(99) 9999-9999" required>
+            <input type="text" name="endereco" placeholder="Endereço" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="password" name="confirmar_senha" placeholder="Confirmar senha" required>
+
+            <h3>Qual pet você quer?</h3>
+            <select name="raca" required>
+                <option value="" disabled selected hidden>Escolha o pet</option>
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+                <option value="hamster">Hamster</option>
+                <option value="passaro">Pássaro</option>
+                <option value="coelho">Coelho</option>
+                <option value="porquinho-da-india">Porquinho-da-Índia</option>
+            </select>
+
+            <div class="radio-group">
+                <label>Sexo do pet:</label><br>
+                <label><input type="radio" name="sexo" value="macho"> Macho</label>
+                <label><input type="radio" name="sexo" value="femea"> Fêmea</label>
+            </div>
+
+            <div class="porte-group">
+                <h4>Porte do pet</h4>
+                <label><input type="radio" name="porte" value="pequeno"> Pequeno</label>
+                <label><input type="radio" name="porte" value="medio"> Médio</label>
+                <label><input type="radio" name="porte" value="grande"> Grande</label>
+            </div>
+
+            <button type="reset">Limpar</button>
+            <button type= "submit" a href="TRABALHO DOS CÃO.html">cadastrar</a></button>
+        </form>
+    </div>
+</body>
+</html>

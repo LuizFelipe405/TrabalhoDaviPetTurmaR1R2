@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário de Adoção</title>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffc1fed2;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    .container {
+        width: 90%;
+        max-width: 800px;
+        margin: 30px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+        text-align: center;
+        color: #444;
+        margin-bottom: 20px;
+    }
+
+    .intro {
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="file"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .photo-box input {
+        width: 100%;
+    }
+
+    .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .col {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .section-title {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        border-bottom: 2px solid #28a745;
+        padding-bottom: 5px;
+        color: #28a745;
+    }
+
+    button[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #218838;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Formulário de Adoção</h1>
+
+    <form id="formAdocao" action="form_adocao.php" method="POST" enctype="multipart/form-data">
+
+        <p class="intro">
+            Olá! Obrigado por escolher adotar com o 
+            <strong>Pet Match - Encontro Perfeito</strong> 🐾<br><br>
+            Preencha o formulário abaixo:
+        </p>
+
+        <label>Envie 3 fotos do ambiente:</label>
+        <div class="photo-box">
+            <input type="file" name="foto1" required>
+            <input type="file" name="foto2" style="margin-top:10px" required>
+            <input type="file" name="foto3" style="margin-top:10px" required>
+        </div> 
+        
+
+        <div class="section-title">Dados Pessoais</div>
+
+        <label>Nome completo</label>
+        <input type="text" name="nome" value=""> 
+
+        <label>Animal a ser adotado</label>
+        <input type="text" name="animal">
+
+        <label>E-mail</label>
+        <input type="email" name="email">
+
+        <div class="row">
+            <div class="col">
+                <label>DDD</label>
+                <input type="text" name="ddd" required>
+            </div>
+            <div class="col">
+                <label>Telefone/WhatsApp</label>
+                <input type="text" name="whatsapp" required>
+            </div>
+        </div>
+
+        <label>Data de nascimento</label>
+        <input type="date" name="nascimento" required>
+
+        <label>Instagram (opcional)</label>
+        <input type="text" placeholder="@" name="instagram">
+
+        <label>Facebook (opcional)</label>
+        <input type="text" placeholder="facebook.com/" name="facebook">
+
+        <label>Profissão</label>
+        <input type="text" name="profissao">
+
+        <label>Endereço completo</label>
+        <input type="text" name="endereco">
+
+        <div class="row">
+            <div class="col">
+                <label>Bairro</label>
+                <input type="text" name="bairro" required>
+            </div>
+            <div class="col">
+                <label>Cidade</label>
+                <input type="text" name="cidade" required>
+            </div>
+            <div class="col">
+                <label>UF</label>
+                <input type="text" name="uf" required>
+            </div>
+        </div>
+
+        <div class="section-title">Questionário</div>
+
+        <script>
+            const perguntas = [
+                "1. Você está adotando um cão para ser:",
+                "2. Mora em casa ou apartamento?",
+                "3. É permitido animais no imóvel?",
+                "4. Onde o cão irá dormir?",
+                "5. O que faria caso precisasse mudar?",
+                "6. Tem outros animais? São castrados?",
+                "7. Já teve outros animais?",
+                "8. Como será a adaptação?",
+                "9. Cuidará do cão até o fim?",
+                "10. Não está adotando por impulso?",
+                "11. Como educará o animal?",
+                "12. O que faria se incomodar vizinhos?",
+                "13. Opinião sobre repassar a guarda.",
+                "14. Está disposto a cuidar?",
+                "15. Pode arcar com custos?",
+                "16. Respeitará a personalidade?",
+                "17. Se alguém tiver alergia?",
+                "18. O que fará ao viajar?",
+                "19. Todos concordam com a adoção?",
+                "20. Em caso de gravidez?",
+                "21. Ensinará crianças a respeitar?",
+                "22. Há venenos? Garantirá segurança?",
+                "23. Opinião sobre cães soltos na rua.",
+                "24. Quantas horas ficará sozinho?",
+                "25. Se fugir, compromete-se a procurar?",
+                "26. Concorda em enviar fotos?",
+                "27. Em devolução, devolver ao santuário?"
+            ];
+
+            document.write(perguntas.map((p, i) =>
+                `<label>${p}</label><textarea name="pergunta_${i+1}"></textarea>`
+            ).join(""));
+        </script>
+
+        <button type="submit">Enviar Formulário</button>
+
+    </form>
+</div>
+</body>
+</html>
